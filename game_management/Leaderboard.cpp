@@ -2,12 +2,6 @@
 
 namespace gn
 {
-	Leaderboard::Leaderboard()
-	{
-		_scores = new list<scoreReg>();
-		_size = DEFAULT_SIZE;
-	}
-
 	Leaderboard::Leaderboard(const int& size)
 	{
 		_scores = new list<scoreReg>();
@@ -63,6 +57,36 @@ namespace gn
 			return false;
 	}
 
+	//bool Leaderboard::saveToFile()
+	//{
+	//	ofstream outFile("Leaderboard.dat", ios::binary);
+
+	//	if (outFile.is_open())
+	//	{
+	//		outFile.write((char*)&_scores->front(), sizeof(scoreReg));
+	//		outFile.close();
+	//		return true;
+	//	}
+	//	else
+	//		return false;
+	//}
+
+	//bool Leaderboard::loadFromFile()
+	//{
+	//	ifstream inFile("Leaderboard.dat", ios::binary);
+
+	//	if (inFile.is_open())
+	//	{
+	//		scoreReg topScore;
+	//		inFile.read((char*)&topScore, sizeof(scoreReg));
+	//		_scores->push_front(topScore);
+	//		inFile.close();
+	//		return true;
+	//	}
+	//	else
+	//		return false;
+	//}
+
 	scoreReg Leaderboard::getTopScore() const
 	{
 		return _scores->front();
@@ -79,17 +103,19 @@ namespace gn
 	}
 	
 	scoreReg Leaderboard::retrieveScore(const int& ranking) const
-	{
+	{	
 		int i = 1;
+		list<scoreReg>::iterator it;
 
-		if (_size > 0)
-			for (list<scoreReg>::iterator it = _scores->begin(); i <= ranking; it++)
-			{
-				if (i == ranking)
-					return *it;
-				else
-					i++;
-			}
+		for (it = _scores->begin(); i <= ranking && it != _scores->end(); it++)
+		{
+			if (i == ranking)
+				break;
+			else
+				i++;
+		}
+
+		return *it;
 	}
 
 	int Leaderboard::getCurrentSize() const

@@ -1,6 +1,8 @@
 #ifndef LEADERBOARD_H
 #define LEADERBOARD_H
 
+#include <iostream>
+#include <fstream>
 #include <list>
 #include "Structures.h"
 #define DEFAULT_SIZE 10
@@ -17,13 +19,14 @@ namespace gn
 		int _size;
 
 	public:
-		Leaderboard();
-		Leaderboard(const int& size);
+		Leaderboard(const int& size = DEFAULT_SIZE);
 		~Leaderboard();
 
 		bool addScore(const scoreReg& score);
 		bool clearLeaderboard();
 		bool resizeLeaderboard(const int& newSize);
+		//bool saveToFile();
+		//bool loadFromFile();
 
 		scoreReg getTopScore() const;
 		scoreReg retrieveScore(const int& ranking) const;

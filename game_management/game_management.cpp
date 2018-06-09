@@ -11,4 +11,15 @@ namespace gn
 
 		return newScore;
 	}
+
+	Leaderboard* createLeaderboard(int size = DEFAULT_SIZE)
+	{
+		Leaderboard* leaderboard = new Leaderboard(size);
+		return leaderboard;
+	}
+
+	void destroyLeaderboard(Leaderboard* leaderboard)
+	{
+		delete leaderboard;
+	}
 }

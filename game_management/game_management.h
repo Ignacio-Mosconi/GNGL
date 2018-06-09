@@ -7,6 +7,8 @@
 namespace gn
 {
 	scoreReg createScore(string name, int score);
+	Leaderboard* createLeaderboard(int size);
+	void destroyLeaderboard(Leaderboard* leaderboard);
 }
 
 #endif
