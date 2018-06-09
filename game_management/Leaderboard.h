@@ -18,16 +18,18 @@ namespace gn
 
 	public:
 		Leaderboard();
-		Leaderboard(int size);
+		Leaderboard(const int& size);
 		~Leaderboard();
 
-		bool addScore(scoreReg score);
+		bool addScore(const scoreReg& score);
 		bool clearLeaderboard();
-		bool resizeLeaderboard(int newSize);
+		bool resizeLeaderboard(const int& newSize);
 
-		scoreReg getTopScore();
-		string getBestPlayer();
-		int getBestScore();
+		scoreReg getTopScore() const;
+		scoreReg retrieveScore(const int& ranking) const;
+		string getBestPlayer() const;
+		int getBestScore() const;
+		int getCurrentSize() const;
 	};
 }
 
