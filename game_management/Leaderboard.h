@@ -1,8 +1,11 @@
 #ifndef LEADERBOARD_H
 #define LEADERBOARD_H
+
 #include <list>
 #include "Structures.h"
-#define DEFAULT_AMOUNT 10
+#define DEFAULT_SIZE 10
+#define MAX_SIZE 1000
+
 using namespace std;
 
 namespace gn
@@ -11,15 +14,20 @@ namespace gn
 	{
 	private:
 		list<scoreReg>* _scores;
-		int _amount;
+		int _size;
 
 	public:
 		Leaderboard();
-		Leaderboard(int amount);
+		Leaderboard(int size);
 		~Leaderboard();
 
 		bool addScore(scoreReg score);
-		scoreReg getHighestScore();
+		bool clearLeaderboard();
+		bool resizeLeaderboard(int newSize);
+
+		scoreReg getTopScore();
+		string getBestPlayer();
+		int getBestScore();
 	};
 }
 

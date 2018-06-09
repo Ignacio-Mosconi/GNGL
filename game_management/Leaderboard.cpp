@@ -5,13 +5,13 @@ namespace gn
 	Leaderboard::Leaderboard()
 	{
 		_scores = new list<scoreReg>();
-		_amount = DEFAULT_AMOUNT;
+		_size = DEFAULT_SIZE;
 	}
 
-	Leaderboard::Leaderboard(int amount)
+	Leaderboard::Leaderboard(int size)
 	{
 		_scores = new list<scoreReg>();
-		_amount = amount;
+		_size = (size > 0 && size < MAX_SIZE) ? size : DEFAULT_SIZE;
 	}
 
 	Leaderboard::~Leaderboard()
@@ -35,16 +35,47 @@ namespace gn
 				if (it->score < newScore.score)
 				{
 					_scores->insert(it, newScore);
-					if (_scores->size() > _amount)
+					if (_scores->size() > _size)
 						_scores->pop_back();
-					addedScore = true;;
+					addedScore = true;
+					break;
 				}
 			}
+		
 		return addedScore;
 	}
 
-	scoreReg Leaderboard::getHighestScore()
+	bool Leaderboard::clearLeaderboard()
+	{
+		_scores->clear();
+
+		return _scores->empty();
+	}
+
+	bool Leaderboard::resizeLeaderboard(int newSize)
+	{
+		if (newSize > 0 && newSize < MAX_SIZE)
+		{
+			_size = newSize;
+			return true;
+		}
+		else
+			return false;
+	}
+
+	scoreReg Leaderboard::getTopScore()
 	{
 		return _scores->front();
 	}
+
+	string Leaderboard::getBestPlayer()
+	{
+		return _scores->front().name;
+	}
+
+	int Leaderboard::getBestScore()
+	{
+		return _scores->front().score;
+	}
+
 }
