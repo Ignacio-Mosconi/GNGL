@@ -10,7 +10,7 @@ namespace gn
 	class Leaderboard
 	{
 	private:
-		list<Score>* _scores;
+		list<scoreReg>* _scores;
 		int _amount;
 
 	public:
@@ -18,8 +18,8 @@ namespace gn
 		Leaderboard(int amount);
 		~Leaderboard();
 
-		bool addScore(Score score);
-		Score getHighestScore();
+		bool addScore(scoreReg score);
+		scoreReg getHighestScore();
 	};
 }
 

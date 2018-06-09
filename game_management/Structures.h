@@ -5,10 +5,10 @@ using namespace std;
 
 namespace gn
 {
-	struct Score
+	struct scoreReg
 	{
-		int score;
 		string name;
+		int score;
 	};
 }
 

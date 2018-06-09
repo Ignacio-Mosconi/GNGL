@@ -4,13 +4,13 @@ namespace gn
 {
 	Leaderboard::Leaderboard()
 	{
-		_scores = new list<Score>();
+		_scores = new list<scoreReg>();
 		_amount = DEFAULT_AMOUNT;
 	}
 
 	Leaderboard::Leaderboard(int amount)
 	{
-		_scores = new list<Score>();
+		_scores = new list<scoreReg>();
 		_amount = amount;
 	}
 
@@ -20,21 +20,21 @@ namespace gn
 			delete _scores;
 	}
 
-	bool Leaderboard::addScore(Score score)
+	bool Leaderboard::addScore(scoreReg newScore)
 	{
 		bool addedScore = false;
 
 		if (_scores->empty())
 		{
-			_scores->push_front(score);
+			_scores->push_front(newScore);
 			addedScore = true;
 		}
 		else
-			for (list<Score>::iterator it = _scores->begin(); it != _scores->end(); it++)
+			for (list<scoreReg>::iterator it = _scores->begin(); it != _scores->end(); it++)
 			{
-				if (it->score < score.score)
+				if (it->score < newScore.score)
 				{
-					_scores->insert(it, score);
+					_scores->insert(it, newScore);
 					if (_scores->size() > _amount)
 						_scores->pop_back();
 					addedScore = true;;
@@ -43,7 +43,7 @@ namespace gn
 		return addedScore;
 	}
 
-	Score Leaderboard::getHighestScore()
+	scoreReg Leaderboard::getHighestScore()
 	{
 		return _scores->front();
 	}
