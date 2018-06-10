@@ -25,8 +25,6 @@ namespace gn
 		bool addScore(const scoreReg& score);
 		bool clearLeaderboard();
 		bool resizeLeaderboard(const int& newSize);
-		//bool saveToFile();
-		//bool loadFromFile();
 
 		scoreReg getTopScore() const;
 		scoreReg retrieveScore(const int& ranking) const;

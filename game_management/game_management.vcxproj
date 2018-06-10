@@ -78,7 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)lib</OutDir>
     <IntDir>$(Configuration)</IntDir>
-    <TargetName>$GNGL-(ProjectName)-release-s</TargetName>
+    <TargetName>$(SolutionName)-$(ProjectName)-release-s</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)lib</OutDir>

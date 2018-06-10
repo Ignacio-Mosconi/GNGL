@@ -60,36 +60,6 @@ namespace gn
 			return false;
 	}
 
-	//bool Leaderboard::saveToFile()
-	//{
-	//	ofstream outFile("Leaderboard.dat", ios::binary);
-
-	//	if (outFile.is_open())
-	//	{
-	//		outFile.write((char*)&_scores->front(), sizeof(scoreReg));
-	//		outFile.close();
-	//		return true;
-	//	}
-	//	else
-	//		return false;
-	//}
-
-	//bool Leaderboard::loadFromFile()
-	//{
-	//	ifstream inFile("Leaderboard.dat", ios::binary);
-
-	//	if (inFile.is_open())
-	//	{
-	//		scoreReg topScore;
-	//		inFile.read((char*)&topScore, sizeof(scoreReg));
-	//		_scores->push_front(topScore);
-	//		inFile.close();
-	//		return true;
-	//	}
-	//	else
-	//		return false;
-	//}
-
 	scoreReg Leaderboard::getTopScore() const
 	{
 		return _scores->front();

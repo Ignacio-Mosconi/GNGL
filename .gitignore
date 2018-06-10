@@ -6,3 +6,5 @@ lib/
 TestProject/
 
 \.vs/
+
+game_management/Release/
