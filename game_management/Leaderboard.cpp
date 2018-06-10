@@ -50,6 +50,9 @@ namespace gn
 	{
 		if (newSize > 0 && newSize < MAX_SIZE)
 		{
+			if (_size > newSize)
+				for (int i = 0; i < _size - newSize; i++)
+					_scores->pop_back();
 			_size = newSize;
 			return true;
 		}
